@@ -108,7 +108,7 @@ struct ContentView: View {
                     Image(systemName: "tv.fill")
                     Text("First Tab")
                 }
-                Text("The content of the first view")
+                Text("The content of the second view")
                     .tabItem {
                         Image(systemName: "phone.fill")
                         Text("Second Tab")

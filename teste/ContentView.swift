@@ -3,6 +3,7 @@
 //  teste
 //
 //  Created by Guilherme Deconto on 07/01/20.
+//  Created by Gabriel Fanto on 07/01/20.
 //  Copyright © 2020 Guilherme Deconto. All rights reserved.
 //
 
@@ -88,6 +89,18 @@ struct ContentView: View {
                 }
                 
             }.padding(.leading, 20).padding(.trailing, 20)
+            
+            ScrollView(.horizontal){
+                HStack{
+                    Image("imagem1").resizable().frame(width: 270, height: 500, alignment: .center)
+                    Image("imagem1").resizable().frame(width: 270, height: 500, alignment: .center)
+                    Image("imagem1").resizable().frame(width: 270, height: 500, alignment: .center)
+                    Image("imagem1").resizable().frame(width: 270, height: 500, alignment: .center)
+                    Image("imagem1").resizable().frame(width: 270, height: 500, alignment: .center)
+                    Image("imagem1").resizable().frame(width: 270, height: 500, alignment: .center)
+                }
+                
+            }
         }
     }
 }

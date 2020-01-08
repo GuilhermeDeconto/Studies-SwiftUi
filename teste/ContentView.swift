@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  teste
+//  Segunda Aula
 //
 //  Created by Guilherme Deconto on 07/01/20.
 //  Created by Gabriel Fanto on 07/01/20.
@@ -13,6 +13,7 @@ struct ContentView: View {
     
     @State private var showingAlert = false
     @State private var showingShare = false
+    @State private var isAppDownloaded = false
     
     var body: some View {
         VStack {
@@ -30,12 +31,13 @@ struct ContentView: View {
                             Text("Digging puzzles? Dig this!").foregroundColor(.gray).frame(width: UIScreen.main.bounds.width/2.0, height: nil, alignment: .leading)
                             Spacer()
                             HStack {
-                                Button(action: {self.showingAlert = true} ) {
-                                    Text("GET").bold().foregroundColor(.white).frame(width: 60, height: 30, alignment: .center).background(Color.blue).cornerRadius(10)
-                                }.alert(isPresented: $showingAlert) {
-                                    Alert(title: Text("Important message"), message: Text("You just bought a new App for your Iphone"), dismissButton: .default(Text("Got it!")))
+                                
+                                // Chamando o AppDownload Button do Struct
+                                AppDownloadButton(isAppDownloaded: $isAppDownloaded)
+                                
+                                if isAppDownloaded == false {
+                                    Text("In App Purchases").foregroundColor(.gray).font(.system(size: 10)).frame(width: 55, height: nil, alignment: .leading)
                                 }
-                                Text("In App Purchases").foregroundColor(.gray).font(.system(size: 10)).frame(width: 55, height: nil, alignment: .leading)
                                 Spacer()
                                 Button(action: { self.showingShare = true }){
                                     Image(systemName: "square.and.arrow.up").foregroundColor(.blue).font(.system(size: 22))

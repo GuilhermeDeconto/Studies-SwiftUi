@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var showingAlert = false
+    @State private var showingShare = false
     
     var body: some View {
         VStack {
@@ -36,7 +37,12 @@ struct ContentView: View {
                                 }
                                 Text("In App Purchases").foregroundColor(.gray).font(.system(size: 10)).frame(width: 55, height: nil, alignment: .leading)
                                 Spacer()
-                                Image(systemName: "square.and.arrow.up").foregroundColor(.blue).font(.system(size: 22))
+                                Button(action: { self.showingShare = true }){
+                                    Image(systemName: "square.and.arrow.up").foregroundColor(.blue).font(.system(size: 22))
+                                }.alert(isPresented: $showingShare) { () -> Alert in
+                                    Alert(title: Text("Important message"), message: Text("You just shared an app"), dismissButton:
+                                        .default(Text("Got it!")))
+                                }
                             }
                         }.frame(width: nil, height: 150, alignment: .center)
                     } .padding(20)
